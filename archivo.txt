@@ -1,0 +1,1 @@
+Este repositorio contiene el código y los datos utlizados en mi primer proyecto de data analytics con Python.
