@@ -158,13 +158,17 @@ prom_edad_genero_fig =px.bar(prom_edad_genero,x=prom_edad_genero.index, y='EDAD'
 st.plotly_chart(prom_edad_genero_fig, use_container_width = True)
 st.write(prom_edad_genero)
 
-
 #-7 ------------------------------------------
 st.subheader('7. Cantidad de personas por departamento en el Perú:')
-top_n_countries = df.groupby('DPTO_DOMICILIO').agg({'EDAD':'count'})['EDAD']
-top_n_fig = px.bar(top_n_countries, x=top_n_countries.index, y='EDAD', color=top_n_countries.index)
-st.plotly_chart(top_n_fig, use_container_width = True)
-st.write(top_n_countries)
+cant_depart = df.groupby('DPTO_DOMICILIO').agg({'EDAD':'count'})['EDAD']
+cant_depart_fig = px.bar(cant_depart, x=cant_depart.index, y='EDAD', color=cant_depart.index)
+st.plotly_chart(cant_depart_fig, use_container_width = True)
+st.write(cant_depart)
 
 # 8---------------------------------------------------------------
 
+st.subheader('8. Cantidad promedio de personas por departamento en el Perú:')
+mean_x_depart = df.groupby('DPTO_DOMICILIO').agg({'EDAD':'mean'})['EDAD']
+tmean_x_depart_fig = px.bar(mean_x_depart, x=mean_x_depart.index, y='EDAD', color=mean_x_depart.index)
+st.plotly_chart(tmean_x_depart_fig, use_container_width = True)
+st.write(mean_x_depart)
