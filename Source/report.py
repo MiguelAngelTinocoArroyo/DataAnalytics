@@ -188,7 +188,7 @@ mean_x_depart = df.groupby('DPTO_DOMICILIO')['EDAD'].mean().sort_values(ascendin
 df_mean_x_depart = pd.DataFrame(mean_x_depart)
 # renombrando la columna EDAD por PROMEDIO DE EDADES
 df_mean_x_depart_cambio =  df_mean_x_depart.rename(columns={'EDAD': 'PROMEDIO DE EDADES'})
-df_mean_x_depart_cambio_fig =px.bar(df_mean_x_depart_cambio, x=df_mean_x_depart_cambio.index, 
+df_mean_x_depart_cambio_fig =px.funnel(df_mean_x_depart_cambio, x=df_mean_x_depart_cambio.index, 
                                     y='PROMEDIO DE EDADES', color=df_mean_x_depart_cambio.index)
 
 st.plotly_chart(df_mean_x_depart_cambio_fig, use_container_width = True)
