@@ -147,15 +147,15 @@ st.plotly_chart(data_frame_promedio_cambio_fig, use_container_width = True)
 st.write(data_frame_promedio_cambio)
 # 5------------------------------------------------------------------------
 st.subheader('5. Promedio de edades por estado civil:')
-prom_civil= df.groupby('ESTADO_CIVIL')['EDAD'].mean().sort_values(ascending=False)
+pro_civil= df.groupby('ESTADO_CIVIL')['EDAD'].mean().sort_values(ascending=False)
 # Pasando a un dataframe
-df_promedio_civil = pd.DataFrame(prom_civil)
+df_prom_civil = pd.DataFrame(pro_civil)
 # renombrando la columna EDAD por PROMEDIO DE EDADES
-df_promedio_civil_cambio = data_frame_promedio.rename(columns={'EDAD': 'PROMEDIO DE EDADES'})
-df_promedio_civil_cambio_fig =px.bar(df_promedio_civil_cambio,x=df_promedio_civil_cambio.index,
-                                    y='PROMEDIO DE EDADES', text_auto='.2s',color=df_promedio_civil_cambio.index)
-st.plotly_chart(df_promedio_civil_cambio_fig, use_container_width = True)
-st.write(df_promedio_civil_cambio)
+df_prom_civil_cambio = df_prom_civil.rename(columns={'EDAD': 'PROMEDIO DE EDADES'})
+df_prom_civil_cambio_fig =px.bar(df_prom_civil_cambio, x=df_prom_civil_cambio.index,
+                                    y='PROMEDIO DE EDADES', text_auto='.2s',color=df_prom_civil_cambio.index)
+st.plotly_chart(df_prom_civil_cambio_fig, use_container_width = True)
+st.write(df_prom_civil_cambio) 
 # 6--------------------------------------------------------------
 st.subheader('6. Promedio de edades por Genero:')
 prom_genero= df.groupby('GENERO')['EDAD'].mean().sort_values(ascending=False)
@@ -182,7 +182,7 @@ st.write(df_cant_x_depart_cambio)
 
 # 8 -------------------------------------------------------------
 
-st.subheader('8. Edad promedio de personas por departamento en el Perú:')
+st.subheader('8. Edad promedio por departamento en el Perú:')
 mean_x_depart = df.groupby('DPTO_DOMICILIO')['EDAD'].mean().sort_values(ascending=False)
 #  Pasando a un dataframe
 df_mean_x_depart = pd.DataFrame(mean_x_depart)
