@@ -128,7 +128,14 @@ vivienda_x_edad_fig = px.bar(vivienda_x_edad_cambio, x= vivienda_x_edad_cambio.i
 st.plotly_chart(vivienda_x_edad_fig , use_container_width = True)
 st.write(vivienda_x_edad_cambio)
 #3-----------------------------------------------------------------------
-st.subheader('3. Promedio de edades por condición de vivienda:')
+st.subheader('3. Margen operativo por grado de instrucción:')
+margen_grado = df.groupby('GRADO_INSTRUCCION')['MARGENOPERATIVO'].count().sort_values(ascending=False)                      
+margen_grado_fig = px.bar(margen_grado, x=margen_grado.index, y='MARGENOPERATIVO',
+                                                            text_auto='.2s',color=margen_grado.index)
+st.plotly_chart(margen_grado_fig, use_container_width = True)
+st.write(margen_grado)
+# 4 -----------------------------------------------------------------------
+st.subheader('4. Promedio de edades por condición de vivienda:')
 C_vivienda = df.groupby('CONDICION_VIVIENDA')['EDAD'].mean().sort_values(ascending=False)
 # Pasando a un dataframe
 data_frame_promedio = pd.DataFrame(C_vivienda)
@@ -138,14 +145,6 @@ data_frame_promedio_cambio_fig = px.bar(data_frame_promedio_cambio, x=data_frame
                                  y='PROMEDIO DE EDADES', text_auto='.2s',color=data_frame_promedio_cambio.index)
 st.plotly_chart(data_frame_promedio_cambio_fig, use_container_width = True)
 st.write(data_frame_promedio_cambio)
-# 4------------------------------------------------------------------------
-st.subheader('4. Margen operativo por grado de instrucción:')
-margen_grado = df.groupby('GRADO_INSTRUCCION')['MARGENOPERATIVO'].count().sort_values(ascending=False)                      
-margen_grado_fig = px.bar(margen_grado, x=margen_grado.index, y='MARGENOPERATIVO',
-                                                            text_auto='.2s',color=margen_grado.index)
-st.plotly_chart(margen_grado_fig, use_container_width = True)
-st.write(margen_grado)
-
 # 5------------------------------------------------------------------------
 st.subheader('5. Promedio de edades por estado civil:')
 prom_civil= df.groupby('ESTADO_CIVIL')['EDAD'].mean().sort_values(ascending=False)
@@ -170,8 +169,20 @@ st.plotly_chart(df_prom_genero_cambio_fig, use_container_width = True)
 st.write(df_prom_genero_cambio)
 
 # 7---------------------------------------------------------------
+st.subheader('7. Cantidad de personas por departamento en el Perú:')
+cant_x_depart = df.groupby('DPTO_DOMICILIO')['EDAD'].count().sort_values(ascending=False)
+#  Pasando a un dataframe
+df_cant_x_depart = pd.DataFrame(cant_x_depart)
+# renombrando la columna EDAD por PROMEDIO DE EDADES
+df_cant_x_depart_cambio =  df_cant_x_depart.rename(columns={'EDAD': 'CANTIDAD DE PERSONAS'})
+df_cant_x_depart_cambio_fig =px.bar(df_cant_x_depart_cambio, x=df_cant_x_depart_cambio.index, 
+                                    y='CANTIDAD DE PERSONAS', color=df_cant_x_depart_cambio.index)
+st.plotly_chart(df_cant_x_depart_cambio_fig, use_container_width = True)
+st.write(df_cant_x_depart_cambio)
 
-st.subheader('7. Edad promedio de personas por departamento en el Perú:')
+# 8 -------------------------------------------------------------
+
+st.subheader('8. Edad promedio de personas por departamento en el Perú:')
 mean_x_depart = df.groupby('DPTO_DOMICILIO')['EDAD'].mean().sort_values(ascending=False)
 #  Pasando a un dataframe
 df_mean_x_depart = pd.DataFrame(mean_x_depart)
@@ -182,18 +193,6 @@ df_mean_x_depart_cambio_fig =px.bar(df_mean_x_depart_cambio, x=df_mean_x_depart_
 
 st.plotly_chart(df_mean_x_depart_cambio_fig, use_container_width = True)
 st.write(df_mean_x_depart_cambio)
-
-# 8-----------------------------------------------------------------
-st.subheader('8. Cantidad de personas por departamento en el Perú:')
-cant_x_depart = df.groupby('DPTO_DOMICILIO')['EDAD'].count().sort_values(ascending=False)
-#  Pasando a un dataframe
-df_cant_x_depart = pd.DataFrame(cant_x_depart)
-# renombrando la columna EDAD por PROMEDIO DE EDADES
-df_cant_x_depart_cambio =  df_cant_x_depart.rename(columns={'EDAD': 'CANTIDAD DE PERSONAS'})
-df_cant_x_depart_cambio_fig =px.bar(df_cant_x_depart_cambio, x=df_cant_x_depart_cambio.index, 
-                                    y='CANTIDAD DE PERSONAS', color=df_cant_x_depart_cambio.index)
-st.plotly_chart(df_cant_x_depart_cambio_fig, use_container_width = True)
-st.write(df_cant_x_depart_cambio)
 # 9 ----------------------------------------------------------------
 # creando matriz de correlación:
 st.subheader('9. Matriz de correlación de las variables numéricas:')
