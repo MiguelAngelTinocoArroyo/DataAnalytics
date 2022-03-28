@@ -1,6 +1,6 @@
 streamlit
 pandas
-matplotlib.pyplot
+matplotlib
 numpy
 plotly.express
 geopandas
