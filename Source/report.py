@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 import plotly.express as px
-import geopandas as gpd
 
 st.title('Reporte de datos de crétido hipotecario')
 
@@ -107,7 +105,6 @@ for i in range(0, len(df['EDAD'])) :
 eje_x = ['18-30','31-40','41-50','51-60','61-70','71-80']
 eje_y = [len(edad_1),len(edad_2),len(edad_3),len(edad_4),len(edad_5),len(edad_6)]
 fig1 = px.bar(x = eje_x, y = eje_y, color =['2818','2270','1813','1132','426','27'], text_auto='.2s')
-plt.grid(color='c', linestyle='dotted', linewidth=1)
 st.plotly_chart(fig1, use_container_width = True)
 
 Rangos = ['18-30','31-40','41-50','51-60','61-70','71-80']
