@@ -1,9 +1,10 @@
+# Data Analytics sobre Créditos Hipotecarios
 # Analisis Exploratorio de Datos
 Pasos de preparación
 1. Seleccionar las variables a analizar (Realizado con pandas_profiling) ✔
 2. Verificar la integridad de las variables (verificación de la limpieza de datos en las variables). ✔
-3. Plantearse preguntas de exploración.(EDA)
-4. Plantear hipotesis a partir de nuestras variables.
+3. Plantearse preguntas de exploración.(EDA) ✔
+4. Plantear hipotesis a partir de nuestras variables. ✔
 
 # Pasos de EDA
 Limpiar los datos (80% del tiempo).
