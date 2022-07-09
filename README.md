@@ -11,3 +11,6 @@ Limpiar los datos (80% del tiempo).
 Responder las preguntas de exploración a partir de los datos (indicadores y gráficas).
 Responder las hipótesis (Tests estadísticos | estadística descriptiva).
 Generar un reporte de resultados para el público en general.
+
+# Visualización de Analisis de Datos en Streamlit:
+- [App de Analisis en Streamlit link](https://miguelangeltinocoarroyo-dataanalytics-sourcereport-jj04lq.streamlitapp.com/)
