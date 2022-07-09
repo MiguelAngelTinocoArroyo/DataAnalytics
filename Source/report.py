@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-st.title('Reporte de datos de crétido hipotecario')
+st.title('Reporte de datos de crédito hipotecario')
 
 @st.cache(allow_output_mutation=True)
 def load_data(nrows):
